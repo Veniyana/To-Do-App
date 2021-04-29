@@ -2,8 +2,8 @@ import React from "react";
 import { HashRouter, Switch, Route } from "react-router-dom";
 import AddToDo from "./components/toDo/AddToDo";
 import ToDoList from "./components/toDo/ToDoList";
-import AddNote from "./components/notes/AddNote"
-import NoteList from "./components/notes/NoteList"
+import AddNote from "./components/notes/AddNote";
+import NoteList from "./components/notes/NoteList";
 import Navigation from "./components/navigation/Navigation";
 
 const App = () => {
@@ -13,7 +13,7 @@ const App = () => {
         <Navigation />
         <Switch>
           <Route path="/" exact>
-            <AddNote/>
+            <AddNote />
             <NoteList />
           </Route>
           <Route path="/todos">

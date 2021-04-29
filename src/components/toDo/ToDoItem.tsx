@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { ToDoType } from "../../redux/types";
 import { useDispatch } from "react-redux";
 import { changeToDoCompleteness, removeToDo } from "../../redux/action";
@@ -10,6 +10,8 @@ import {
 } from "@material-ui/core";
 import IconButton from "@material-ui/core/IconButton";
 import DeleteIcon from "@material-ui/icons/Delete";
+import CheckBoxOutlineBlankIcon from "@material-ui/icons/CheckBoxOutlineBlank";
+import CheckBoxIcon from "@material-ui/icons/CheckBox";
 
 type Props = {
   item: ToDoType;
@@ -17,12 +19,14 @@ type Props = {
 
 const ToDoItem = ({ item }: Props) => {
   const dispatch = useDispatch();
+  const [checked, setChecked] = useState(false);
 
-  const changeState = () => {
+  const handleClick = () => {
     const changedItem = {
       name: item.name,
       completed: item.completed,
     };
+    setChecked(!checked);
     dispatch(changeToDoCompleteness(changedItem));
   };
 
@@ -35,14 +39,17 @@ const ToDoItem = ({ item }: Props) => {
   };
 
   return (
-    <div className="item">
+    <div className="toDoItem">
       <List>
-        <ListItem button onClick={() => changeState()}>
-          <Typography variant={item.completed ? "h4" : "h3"} className={item.completed ? "done" : ""}>
+        <ListItem className="item">
+          <Typography variant="h4" className={item.completed ? "done" : ""}>
             {item.name}
           </Typography>
-          <ListItemSecondaryAction onClick={() => handleDelete()}>
-            <IconButton aria-label="delete">
+          <ListItemSecondaryAction>
+            <IconButton onClick={handleClick}>
+              {checked ? <CheckBoxIcon /> : <CheckBoxOutlineBlankIcon />}
+            </IconButton>
+            <IconButton aria-label="delete" onClick={handleDelete}>
               <DeleteIcon />
             </IconButton>
           </ListItemSecondaryAction>

@@ -1,11 +1,20 @@
 .header {
-    margin-top: 120px;
+    margin: 120px auto 0 auto;
+    width: 40%;
 }
 
 .noteList,
 .toDoList {
     display: grid;
+    column-gap: 15px;
+}
+
+.noteList {
     grid-template-columns: 1fr 1fr;
+}
+
+.toDoList {
+    grid-template-columns: 1fr 1fr 1fr;
 }
 
 .modalHeader {
@@ -23,8 +32,29 @@
     column-gap: 15px;
 }
 
-.done{
-    color:grey;
+.done {
+    color: grey;
     font-style: italic;
     text-decoration: line-through;
+}
+
+.description {
+    padding: 20px;
+    background-color: rgba(63, 81, 181, 0.2);
+    border: 1px solid rgba(63, 81, 181, 0.2);
+    border-top: none;
+    border-radius: 0 0 4px 4px;
+}
+
+.addToDo,
+.addNote {
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    column-gap: 15px;
+}
+
+.item {
+    background-color: rgba(63, 81, 181, 0.4);
+    border: 1px solid rgba(63, 81, 181, 0.6);
+    border-radius: 4px 4px 0 0;
 }

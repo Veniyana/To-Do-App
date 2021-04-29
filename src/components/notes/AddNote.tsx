@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { FormControl, TextField, Button } from "@material-ui/core";
+import { TextField, Button } from "@material-ui/core";
 import { useDispatch } from "react-redux";
 import { addNote } from "./../../redux/action";
 
@@ -17,19 +17,22 @@ const AddNote = () => {
       dispatch(addNote(newItem));
     }
   };
+
   return (
     <div className="header">
       <div className="addNote">
-        <FormControl>
+        <>
           <TextField
             label="Enter note name"
             value={name}
-            onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
-              setName(e.target.value)
-            }
+            size="small"
+            variant="outlined"
+            onChange={e => setName(e.target.value)}
           ></TextField>
-          <Button onClick={addItemToList}>Add note</Button>
-        </FormControl>
+          <Button variant="contained" color="primary" onClick={addItemToList}>
+            Add note
+          </Button>
+        </>
       </div>
     </div>
   );

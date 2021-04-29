@@ -4,7 +4,7 @@ import {
   Button,
   Dialog,
   DialogTitle,
-  TextareaAutosize
+  TextareaAutosize,
 } from "@material-ui/core";
 import DeleteIcon from "@material-ui/icons/Delete";
 import SaveIcon from "@material-ui/icons/Save";
@@ -50,7 +50,7 @@ const NoteDialog = ({ open, onClose, noteInformation }: Props) => {
           className="textArea"
           rowsMin={15}
           value={description}
-          onChange={(e) => setDescription(e.target.value)}
+          onChange={e => setDescription(e.target.value)}
         />
         <div className="buttonContainer">
           <Button

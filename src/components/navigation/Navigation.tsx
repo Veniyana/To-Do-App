@@ -12,7 +12,7 @@ const Navigation = () => {
         </Typography>
         <Tabs
           value={value}
-          onChange={(_: React.ChangeEvent<{}>, v) => setValue(v)}
+          onChange={(_, v) => setValue(v)}
           centered
         >
           <Tab label="Notes" component={Link} to="/" />
